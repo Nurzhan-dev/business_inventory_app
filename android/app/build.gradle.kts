@@ -1,8 +1,10 @@
 plugins {
     id "com.android.application"
     id "kotlin-android"
+    // Flutter Gradle Plugin
     id "dev.flutter.flutter-gradle-plugin"
 }
+
 
 android {
     namespace "com.example.business_inventory_app"
