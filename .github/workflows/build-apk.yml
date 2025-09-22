@@ -18,7 +18,12 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.35.2'
-
+          
+      - name: Clean Flutter build
+        run: flutter clean
+             rm -rf ~/.gradle/caches/
+             rm -rf ~/.pub-cache/
+             
       - name: Install dependencies
         run: flutter pub get
 
