@@ -2,13 +2,13 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url 'https://storage.googleapis.com/flutter_infra/flutter/snapshot/gradle-plugins/'
+        }
     }
     dependencies {
-        // Зависимости для самого Gradle
         classpath 'com.android.tools.build:gradle:8.3.2'
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.23'
-        
-        // Эта строка необходима для вашей версии Flutter
         classpath 'dev.flutter.flutter-gradle-plugin:1.0.0'
     }
 }
