@@ -4,34 +4,31 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout source code
         uses: actions/checkout@v4
 
-      - name: Set up Flutter
+      - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.35.2'
-          
-      - name: Clean Flutter build
-        run: |
-          flutter clean
-          rm -rf ~/.gradle/caches/
-          rm -rf ~/.pub-cache/
-             
+          flutter-version: '3.35.2'   # ✅ твоя версия Flutter
+          channel: 'stable'
+
       - name: Install dependencies
         run: flutter pub get
+
+      - name: Clean build
+        run: flutter clean
 
       - name: Build release APK
         run: flutter build apk --release
 
-      - name: Upload APK
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-release
