@@ -1,33 +1,11 @@
 buildscript {
     repositories {
-        google()
-        mavenCentral()
-        maven {
-            url 'https://storage.googleapis.com/flutter_infra/flutter/snapshot/gradle-plugins/'
-        }
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.3.2'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.23'
-        classpath 'dev.flutter.flutter-gradle-plugin:1.0.0'
+        maven { url = uri("https://dl.google.com/dl/android/maven2/") }
+        maven { url = uri("https://repo.maven.apache.org/maven2/") }
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-rootProject.buildDir = "../build"
-subprojects {
-    project.buildDir = "${rootProject.buildDir}/${project.name}"
-}
-subprojects {
-    project.evaluationDependsOn(":app")
-}
-
-tasks.register("clean", Delete) {
-    delete rootProject.buildDir
+plugins {
+    id("com.android.application") version "8.3.2" apply false
+    id("org.jetbrains.kotlin.android") version "1.9.23" apply false
 }
