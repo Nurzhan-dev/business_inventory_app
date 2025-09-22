@@ -1,7 +1,16 @@
-plugins {
-    id "com.android.application" version "8.3.2" apply false
-    id "dev.flutter.flutter-gradle-plugin" version "1.0.0" apply false
-    id "org.jetbrains.kotlin.android" version "1.9.23" apply false
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // Зависимости для самого Gradle
+        classpath 'com.android.tools.build:gradle:8.3.2'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.23'
+        
+        // Эта строка необходима для вашей версии Flutter
+        classpath 'dev.flutter.flutter-gradle-plugin:1.0.0'
+    }
 }
 
 allprojects {
@@ -10,19 +19,7 @@ allprojects {
         mavenCentral()
     }
 }
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
 
-dependencies {
-        classpath 'com.android.tools.build:gradle:8.3.2'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.23'
-        // This line is often the key for older Flutter projects
-        classpath 'dev.flutter.flutter-gradle-plugin:1.0.0'
-    }
-}
 rootProject.buildDir = "../build"
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
