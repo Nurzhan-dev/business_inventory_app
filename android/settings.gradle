@@ -1,13 +1,9 @@
 pluginManagement {
     repositories {
-        maven { url = uri("https://dl.google.com/dl/android/maven2/") }
-        maven { url = uri("https://repo.maven.apache.org/maven2/") }
+        google()
+        mavenCentral()
         gradlePluginPortal()
     }
-}
-
-plugins {
-    id("dev.flutter.flutter-plugin-loader")
 }
 
 include(":app")
