@@ -12,8 +12,8 @@ android {
         applicationId = "com.example.business_inventory_app"
         minSdk = 21
         targetSdk = 34
-        versionCode = flutterVersionCode.toInt()
-        versionName = flutterVersionName
+        versionCode = 1
+        versionName = "1.0.0"
     }
 
     compileOptions {
