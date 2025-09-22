@@ -10,7 +10,19 @@ allprojects {
         mavenCentral()
     }
 }
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
 
+dependencies {
+        classpath 'com.android.tools.build:gradle:8.3.2'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.23'
+        // This line is often the key for older Flutter projects
+        classpath 'dev.flutter.flutter-gradle-plugin:1.0.0'
+    }
+}
 rootProject.buildDir = "../build"
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
